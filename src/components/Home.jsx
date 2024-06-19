@@ -36,12 +36,16 @@ const Home = () => {
             className="card mb-3"
             key={product.id}
             style={{
-              width: "18rem",
-              height: "14rem",
-              boxShadow: "rgba(0, 0, 0, 0.24) 0px 2px 3px",
-              margin: "10px",
+              width: "270px",
+              height: "210px",
+              boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              borderRadius: "10px",
+              overflow: "hidden",
+
               display: "flex",
               flexDirection: "column",
+              justifyContent: "flex-start",
+              alignItems: "stretch",
             }}
           >
             <div
@@ -55,30 +59,39 @@ const Home = () => {
               }}
             >
               <div>
-                <h5 className="card-title" style={{ margin: "0 0 10px 0" }}>
+                <h5
+                  className="card-title"
+                  style={{ margin: "0 0 10px 0", fontSize: "1.2rem" }}
+                >
                   {product.name.toUpperCase()}
                 </h5>
-                <span className="card-brand">
-                  by <i style={{ fontStyle: "italic" }}>{product.brand}</i>
-                </span>
+                <i
+                  className="card-brand"
+                  style={{ fontStyle: "italic", fontSize: "0.8rem" }}
+                >
+                  {"by " + product.brand}
+                </i>
               </div>
-              <div>
+              <hr className="hr-line" style={{ margin: "10px 0" }} />
+              <div className="home-cart-price">
                 <h5
                   className="card-text"
-                  style={{ fontWeight: "600", margin: "10px 0" }}
-                >
-                  {"$" + product.price}
-                </h5>
-                <button
-                  className="btn btn-primary"
-                  style={{ width: "100%", marginTop: "15px" }}
-                  onClick={(e) => {
-                    e.preventDefault();
+                  style={{
+                    fontWeight: "600",
+                    fontSize: "1.1rem",
+                    marginBottom: "5px",
                   }}
                 >
-                  Add to Cart
-                </button>
+                  <i className="bi bi-currency-rupee"></i>
+                  {product.price}
+                </h5>
               </div>
+              <button
+                className="btn-hover color-9"
+                style={{ margin: "10px 25px 0px " }}
+              >
+                Add To Cart
+              </button>
             </div>
           </div>
         ))}
