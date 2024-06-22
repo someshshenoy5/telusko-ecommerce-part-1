@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import unplugged from "../assets/unplugged.png"
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -22,8 +23,8 @@ const Home = () => {
 
   if (isError) {
     return (
-      <h2 className="text-center" style={{ padding: "10rem" }}>
-        Something went wrong...
+      <h2 className="text-center" style={{ padding: "18rem" }}>
+      <img src={unplugged} alt="Error" style={{ width: '100px', height: '100px' }}/>
       </h2>
     );
   }
